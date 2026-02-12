@@ -1,0 +1,147 @@
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles}
+\usepackage{etoolbox}
+\usepackage{animate}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Geometric Probability]{Geometric Probability}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Oct. 30, 2025}
+%---------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Reminders}
+
+\begin{frame}[t]{Upcoming Competitions and Events}
+    \textbf{\textit{Big}} events!
+
+    \begin{enumerate}
+        \item Georgia Math League \# 2  % gauge how many papers we need to print out
+        \item AMC 10/12
+        \begin{itemize}
+            \item A's on November 5, B's on November 13
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\section{Geometric Probability!}
+
+\begin{frame}[t]{Types}
+Problem types we’ll practice today:
+\begin{itemize}
+  \item Random points in regions (squares, triangles, circles)
+  \item Inequality regions (e.g., $x+y>1$)
+  \item Using geometric probability to solve word problems
+\end{itemize}
+
+\vspace{1.2cm}
+
+Key idea: Model outcomes as uniform choices in a geometric region, then compute
+\[
+\boxed{\,\mathbb{P}=\dfrac{\text{measure of favorable region}}{\text{measure of sample region}}\,}
+\]
+\end{frame}
+
+\begin{frame}[t]{Starter}
+Two numbers $x,y$ are chosen independently and uniformly from $[0,1]$. What is $\mathbb{P}(x+y>1)$?
+
+\end{frame}
+
+
+\begin{frame}[t]{Quick Quiz}
+Marty the Martian wants to conquer Earth, and he is trying to sneakily land on Earth. However, he has lost control of his steering, and he will land randomly on an acre of land that can be represented by the square containing vertices $(0,0)$, $(1,0)$, $(1,1)$ and $(0,1)$. Unfortunately for Marty (and fortunately for the rest of us), there is a police station at $(0,0)$ that operates using taxicabs. Marty will be caught and his conquest will be unsuccessful if and only if the the sum of the coordinates of the spot he lands on is less than $\frac{3}{2}$. What is the probability that Marty the Martian conquers Earth?
+
+\vspace{2.5cm}
+
+\end{frame}
+
+\begin{frame}[t]{Circle vs. Inscribed Square}
+Pick a random point uniformly in the unit circle. What is the probability it lies \emph{outside} its inscribed square?
+\end{frame}
+
+\begin{frame}[t]{Transform to Simpler Geometry}
+Sometimes constraints look messy but can be simplified by looking at area ratios.
+
+\medskip
+\textbf{Example.} Pick $(x,y)$ uniformly on the unit disk $x^2+y^2\le 1$. Find $\mathbb{P}(x^2+y^2 \le r^2)$ for $0\le r\le 1$.
+
+\[
+\text{Then}\quad \mathbb{P} = \frac{\pi r^2}{\pi\cdot 1^2}=r^2.
+\]
+
+\medskip
+\textbf{Trick to remember:} In radially symmetric regions, area scales like the square of the radius.
+\end{frame}
+
+\begin{frame}[t]{Quicker Quiz}
+Two points $A,B$ are chosen uniformly and independently on the unit segment $[0,1]$. What is the probability that $|A-B|<\tfrac{1}{2}$?
+
+\vspace{2.2cm}
+
+\textit{Hint:} Plot $(A,B)$ in the unit square; the region $|A-B|<\tfrac12$ is a band between two diagonals.
+\end{frame}
+
+\begin{frame}[t]{Inclusion–Exclusion on Areas}
+Pick a random point in the unit square. What is the probability that it lies within distance $d$ of at least one side? (Assume $0<d\le \tfrac12$.)
+
+\medskip
+\textbf{Idea.}
+\begin{itemize}
+  \item The strip within distance $d$ of each side has area $d$, yielding $4d$ in total.
+  \item Corners are double-counted: each corner square of side $d$ has area $d^2$, and there are $4$ corners $\Rightarrow$ subtract $4d^2$.
+\end{itemize}
+
+\[
+\Rightarrow\ \mathbb{P} = 4d - 4d^2.
+\]
+\end{frame}
+
+\section{Worksheet!}
+
+\end{document}

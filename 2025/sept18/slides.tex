@@ -1,0 +1,433 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+% \usepackage[brazil]{babel}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+%----------------------------------------------------------------------------------------
+%    LAYOUT CONFIGURATION
+%----------------------------------------------------------------------------------------
+\input{configs/configs}
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+\input{configs/title_page} 
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+r\end{frame}
+
+\section{Polynomials}
+
+\begin{frame}[t]{What is a polynomial?}
+    \begin{definition}
+        A polynomial is a function $f(x)$ written in terms of a sum of nonnegative integer powers. It can be written as
+        \[f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0\]
+        for $n\ge0$.
+    
+    \end{definition}
+    
+    \vspace{0.5cm}
+    
+    The following function would be considered a polynomial:
+    \[
+    g(x)=5x^2-3x+1
+    \]
+\end{frame}
+
+\begin{frame}[t]{Roots}
+    Polynomials have interesting properties, such as their roots.
+    
+    \begin{definition}
+        A root $r$ of a polynomial $f(x)$ is a number such that $f(r)=0$.
+    \end{definition}
+    
+    Find the roots of the following polynomials:
+    \[f(x)=x+1\]
+    \[g(x)=x^2-2x+1\]
+    \[h(x)=x^2+x+67\]
+\end{frame}
+
+\begin{frame}[t]{Finding Roots}
+    A common method for finding roots is \textbf{factoring}. That is, some polynomials can be written as a product of terms involving their roots.
+    \[
+    x^2-3x+2=(x-1)(x-2)
+    \]
+    In fact, the following fact holds.
+
+    \begin{theorem}[Fundamental Theorem of Algebra]
+        All polynomials can be expressed as a product of monomials with their roots and the leading coefficient.
+        \[f(x)=a(x-r_1)(x-r_2)\cdots(x-r_n)\]
+    \end{theorem}
+
+    \vspace{0.5cm}
+
+    Note that \(r_i\) do not need to distinct (and may also be complex!)
+\end{frame}
+
+\section{Permutations & Combinations}
+
+\begin{frame}[t]{Vieta's Formulae}
+    Take the following
+    \[
+    f(x)=x^2-11x+18
+    \]
+    
+    \begin{itemize}
+        \item Factor the polynomial.
+        \item Find the roots.
+        \item What do you notice about the coefficients and the roots?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Quadratics}
+    Now, look at the general quadratic case.
+    \[
+    f(x)=a(x-r_1)(x-r_2)=ax^2-a(r_1+r_2)x+ar_1r_2
+    \]
+    
+    \begin{theorem}[Vieta's Formula for Quadratics]
+        When given a quadratic of the form
+        \[f(x)=ax^2+bx+c,\]
+        the sum of the roots is $-\frac ba$, and the product is $\frac ca$.
+    \end{theorem}
+\end{frame}
+
+\begin{frame}[t]{Practice}
+    \begin{itemize}
+        \item If the following \(f(x)\) has roots \(\alpha, \beta\), find \(\alpha+\beta\) and \(\alpha\beta\).
+        \[f(x)=3x^2-18x+24\]
+        \item A rectangular garden has a fixed area of \(30 \rm m^2\). Also, the length of the garden is \(5 \rm m\) more than its width. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{The General Form of Vieta's}
+    It turns out that this formula works in general for any polynomial. First, we need to define some terms:
+    \begin{definition}[Elementary Symmetric Polynomials]
+        The elementary symmetric polynomial $e_i$ is defined as
+        \[\sum_{1\le a_1<a_2<\cdots<a_i\le n}r_{a_1}r_{a_2}\cdots r_{a_i}\]     
+        
+    \end{definition}
+\end{frame}
+
+\begin{frame}[t]{The General Form of Vieta's (cont.)}
+    For example, we have
+    \[
+        \begin{aligned}
+        e_1 &= r_1+r_2+\cdots+r_{n-1}+r_n\\
+        e_2 &=r_1r_2+r_1r_3+\cdots +r_1r_n\cdots +r_{n-1}r_n= \sum_{1\le i<j\le n} r_i r_j\\
+        &\hspace{0.2cm} \vdots\\
+        e_k &= \sum_{1\le i_1<\cdots<i_k\le n} r_{i_1}\cdots r_{i_k}
+        \end{aligned}
+        \]
+\end{frame}
+\begin{frame}[t]{The General Form of Vieta's (cont. cont.)}
+    Finally, we arrive at the result
+    \begin{theorem}[Vieta's formulae]
+        In a polynomial \[f(x)=a_nx^n+a_{n-1}x^{n-1}\cdots a_1x+a_0\] with roots $r_1,r_2,\cdots,r_n$, with elementary symmetric polynomials $e_1,e_2,\cdots,e_n$, we have that
+        \[e_i=\frac{(-1)^i\cdot a_{n-i}}{a_n}\]
+    \end{theorem}
+\end{frame}
+\section{Problems}
+\begin{frame}[t]{Problems}
+    \begin{enumerate}
+        \item Let \(r_1, r_2\) be the roots of \(f(x)=x^2-5x+4\). Find \((r_1-r_2)^2\).
+        \item \textit{Challenge Problem: } Let the function 
+        \[g(x) = x^4 - 5x^3 + 2x^2 +7x - 11,\] and let the roots of $g(x)$ be $p,q,r,s$. Find the following: \\
+        \begin{enumerate}[a)]
+            \item $pqr+qrs+prs+pqs$
+            \item $\dfrac{1}{p}+\dfrac{1}{q}+\dfrac{1}{r}+\dfrac{1}{s}$
+            \item $p^2 +q^2 + r^2 + s^2$
+            \item $p^2qrs + pq^2rs + pqr^2s + pqrs^2$
+        \end{enumerate} 
+    \end{enumerate}
+\end{frame}
+
+% \begin{frame}[t]{Lists and Numbering}
+%   \begin{columns}
+%     \begin{column}{0.48\textwidth}
+%       Bulleted list:
+%       \begin{itemize}
+%         \item First level item
+%         \begin{itemize}
+%           \item Second level item
+%           \item Another second level
+%           \begin{itemize}
+%             \item Third level item
+%           \end{itemize}
+%         \end{itemize}
+%         \item Another first level item
+%       \end{itemize}
+%     \end{column}
+%     \begin{column}{0.48\textwidth}
+%       Numbered list:
+%       \begin{enumerate}
+%         \item First step
+%         \begin{enumerate}
+%           \item Substep one
+%           \item Substep two
+%         \end{enumerate}
+%         \item Second step
+%         \item Third step
+%       \end{enumerate}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+% \begin{frame}[t]{Tables}
+%   \begin{table}
+%     \centering
+%     \caption{Sample table with booktabs style}
+%     \begin{tabular}{lcr}
+%       \toprule
+%       \textbf{Header 1} & \textbf{Header 2} & \textbf{Header 3} \\
+%       \midrule
+%       Row 1, Col 1 & Row 1, Col 2 & 123.45 \\
+%       Row 2, Col 1 & Row 2, Col 2 & 67.89 \\
+%       Row 3, Col 1 & Row 3, Col 2 & 456.78 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+  
+%   \vspace{0.5cm}
+  
+%   \begin{block}{Table styling}
+%     The CleanEasy theme works well with the booktabs package for professional-looking tables. 
+%     Simple color alterations make tables more readable without being distracting.
+%   \end{block}
+% \end{frame}
+
+% \begin{frame}[t]{Mathematical Equations}
+%   The CleanEasy theme includes proper mathematical typesetting:
+  
+%   \begin{align}
+%     E &= mc^2 \\
+%     F &= G\frac{m_1 m_2}{r^2}
+%   \end{align}
+  
+%   Maxwell's equations in differential form:
+%   \begin{align}
+%     \nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
+%     \nabla \cdot \vec{B} &= 0 \\
+%     \nabla \times \vec{E} &= -\frac{\partial \vec{B}}{\partial t} \\
+%     \nabla \times \vec{B} &= \mu_0 \vec{J} + \mu_0\varepsilon_0\frac{\partial \vec{E}}{\partial t}
+%   \end{align}
+  
+%   Inline equations like $E = mc^2$ are also properly rendered.
+% \end{frame}
+
+% \begin{frame}[fragile]{Code Listings}
+%   \begin{lstlisting}[language=Python]
+% # A simple Python function
+% def fibonacci(n):
+%     """Return the nth Fibonacci number"""
+%     if n <= 0:
+%         return 0
+%     elif n == 1:
+%         return 1
+%     else:
+%         a, b = 0, 1
+%         for _ in range(2, n + 1):
+%             a, b = b, a + b
+%         return b
+  
+% # Calculate the 10th Fibonacci number
+% result = fibonacci(10)
+% print(f"The 10th Fibonacci number is {result}")
+%   \end{lstlisting}
+% \end{frame}
+
+% \begin{frame}[t]{Figures and Graphics}
+%   \begin{columns}
+%     \begin{column}{0.48\textwidth}
+%       \centering
+%       \begin{figure}
+%         \centering
+%         % Replace with actual image path
+%         % \includegraphics[width=\textwidth]{figures/sample_image.png}
+%         \tikz \fill[blue!30] (0,0) rectangle (3,2);
+%         \caption{Sample placeholder image}
+%       \end{figure}
+%     \end{column}
+%     \begin{column}{0.48\textwidth}
+%       \centering
+%       \begin{figure}          
+%       \begin{tikzpicture}
+%         % Simple TikZ diagram
+%         \draw[thick, ->] (0,0) -- (4,0) node[right] {$x$};
+%         \draw[thick, ->] (0,0) -- (0,3) node[above] {$y$};
+%         \draw[blue, thick] (0,0) .. controls (1,3) and (3,1) .. (4,2);
+%         \node at (2,2.5) {$f(x)$};
+%       \end{tikzpicture}
+%       \caption{Simple TikZ diagram}
+%        \label{fig:enter-label}
+%       \end{figure}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+% \section{Results}
+% \begin{frame}[t]{Overlays and Animations}
+%   Beamer supports step-by-step revelations:
+  
+%   \begin{itemize}
+%     \item<1-> First point appears on slide 1
+%     \item<2-> Second point appears on slide 2
+%     \item<3-> Third point appears on slide 3
+%   \end{itemize}
+  
+%   \pause
+  
+%   This text appears after a pause.
+  
+%   \onslide<4->{
+%     And this content appears on slide 4.
+%   }
+  
+%   \begin{block}<5->{Delayed Block}
+%     This entire block appears only on slide 5.
+%   \end{block}
+% \end{frame}
+
+% \begin{frame}[t]{Citations and References}
+%   CleanEasy works well with bibliographies and citations:
+  
+%   \begin{block}{Sample citation}
+%     According to Einstein \cite{einstein1905}, space and time are relative.
+%   \end{block}
+  
+%   \begin{exampleblock}{Bibliography management}
+%     The theme is compatible with BibTeX, BibLaTeX, and other bibliography management tools.
+%   \end{exampleblock}
+  
+%   % Sample bibliography entries (not functional without .bib file)
+%   % \begin{thebibliography}{9}
+%   % \bibitem{einstein1905}
+%   %   Albert Einstein.
+%   %   \emph{On the Electrodynamics of Moving Bodies}.
+%   %   Annalen der Physik, 1905.
+%   % \end{thebibliography}
+% \end{frame}
+
+% \begin{frame}[t]{Custom TikZ Graphics}
+
+%   \begin{figure}
+%       \centering
+%       \begin{tikzpicture}[scale=0.7]
+%         % Coordinate axes
+%         \draw[thick, ->] (-3,0) -- (3,0) node[right] {$x$};
+%         \draw[thick, ->] (0,-3) -- (0,3) node[above] {$y$};
+        
+%         % Unit circle
+%         \draw[blue!80, thick] (0,0) circle (2);
+        
+%         % Angle and point on circle
+%         \filldraw[red] (60:2) circle (2pt);
+%         \draw[red, thick] (0,0) -- (60:2);
+%         \draw[red, thick, ->] (0.5,0) arc (0:60:0.5);
+%         \node[red] at (30:0.7) {$\theta$};
+        
+%         % Coordinates
+%         \draw[dashed] (60:2) -- (60:2 |- 0,0) node[below] {$\cos\theta$};
+%         \draw[dashed] (60:2) -- (0,0 -| 60:2) node[left] {$\sin\theta$};
+%       \end{tikzpicture}
+%       \caption{The unit circle with trigonometric functions}
+%       \label{fig:exampleTikz}
+%   \end{figure}
+% \end{frame}
+
+% \section{Conclusions}
+% \begin{frame}[t]{Theme Customization}
+%   The CleanEasy theme can be easily customized:
+  
+%   \begin{itemize}
+%     \item Edit \texttt{beamercolorthemeCleanEasy.sty} to change colors
+%     \item Modify \texttt{beamerfontthemeCleanEasy.sty} for different fonts
+%     \item Adjust \texttt{beamerinnerthemeCleanEasy.sty} for layout changes
+%     \item Update \texttt{configs.tex} for footer and section page customization
+%   \end{itemize}
+  
+%   \begin{alertblock}{Important Note}
+%     Always maintain consistent design elements throughout your presentation for a professional look.
+%   \end{alertblock}
+% \end{frame}
+
+% \begin{frame}[t]{Final Thoughts}
+%   \begin{block}{Benefits of CleanEasy}
+%     \begin{itemize}
+%       \item Professional appearance suitable for academic and business contexts
+%       \item Careful attention to typography and spacing
+%       \item High readability with suitable contrast ratios
+%       \item Flexible design that works with different content types
+%     \end{itemize}
+%   \end{block}
+  
+%   \vspace{0.5cm}
+  
+%   \begin{center}
+%     \large{The CleanEasy theme is designed to let your content shine without distractions}
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}[t]
+%   \centering
+%   \Huge \textbf{Thank you!}
+  
+%   \vspace{1cm}
+%   \normalsize
+%   \href{mailto:your@email.com}{your@email.com}
+  
+%   \vspace{0.5cm}
+%   \small
+%   \texttt{https://someurl.com}
+% \end{frame}
+
+% Sample bibliography (not shown in presentation, just for reference)
+% \begin{frame}[t]{References}
+%   \begin{thebibliography}{9}
+%     \bibitem{einstein1905}
+%       Albert Einstein.
+%       \emph{On the Electrodynamics of Moving Bodies}.
+%       Annalen der Physik, 1905.
+%    
+%     \bibitem{beamer}
+%       Till Tantau.
+%       \emph{The Beamer Class}.
+%       \url{https://ctan.org/pkg/beamer}
+%   \end{thebibliography}
+% \end{frame}
+
+% \begin{frame}[t]{References}
+%   \bibliography{reference.bib}
+%   \bibliographystyle{apalike}
+% \end{frame}
+
+\end{document}

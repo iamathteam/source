@@ -1,0 +1,224 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+% \usepackage[brazil]{babel}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+%----------------------------------------------------------------------------------------
+%    LAYOUT CONFIGURATION
+%----------------------------------------------------------------------------------------
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+\title[Permutations and Combinations]{Permutations and Combinations}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Oct. 2, 2025}
+%---------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Reminders}
+
+\begin{frame}[t]{Upcoming Competitions and Events}
+    Please \textit{\textbf{sign up}}!
+    \vspace{0.2cm}
+    \begin{enumerate}
+        \item Georgia Math League \# 1  % gauge how many papers we need to print out
+        \begin{itemize}
+            \item October 23!
+        \end{itemize}
+        \item UGA
+        \begin{itemize}
+            \item October 25!
+            \item In-person; Zell B. Miller Learning Center (right across nice dining hall)
+        \end{itemize}
+        \item KSU
+        \begin{itemize}
+            \item October 29!
+            \item At school
+        \end{itemize}
+        \item AMC 10/12
+        \begin{itemize}
+            \item A's on November 5, B's on November 13
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\section{Intro to Combinatorics}
+
+\begin{frame}[t]{A classic problem}
+    How many ways are there to arrange $n$ people in a row?
+\end{frame}
+
+\begin{frame}[t]{A classic problem}
+    How many ways are there to arrange $n$ people in a row?
+
+    \begin{itemize}
+        \item What counts as different arrangements? 
+        \item How do we count these?
+    \end{itemize}
+    
+    \vspace{4cm}
+    
+    This leads us to define the \textit{permutation}, one of the most fundamental operations in combinatorics.
+\end{frame}
+
+\begin{frame}[t]{Permutations}
+    \begin{definition}
+    We define a new quantity
+    \[
+        _nP_r=\frac{n!}{(n-r)!}=n\cdot(n-1)\cdots(n-r+2)\cdot(n-r+1)
+    \]
+    \end{definition}
+    
+    \vspace{1em}
+    
+    We will use this operation if we need to place $n$ distinct objects in $r$ spots and the order of the objects matters.
+\end{frame}
+
+\begin{frame}[t]{Permutations: An Example}
+    For example, how would we figure out how many ways there are to place 5 people on a podium?
+    
+\end{frame}
+
+\begin{frame}[t]{Permutations: An Example}
+    For example, how would we figure out how many ways there are to place 5 people on a podium?
+
+    \vspace{1cm}
+    \begin{align*}
+        _8P_3
+        &=\frac{8!}{(8-3)!}\\
+        &=8\cdot7\cdot6
+    \end{align*}
+\end{frame}
+\begin{frame}[t]{Quick Quiz}
+    How many ways are there to arrange the letters of the following word?
+
+    \vspace{0.5cm}
+    \begin{center}
+        \textit{VARUN}
+    \end{center}
+    
+    \vspace{1cm}
+    How about arranging 4 letters of this word?
+    
+    \vspace{0.5cm}
+    \begin{center}
+        \textit{PHOENIX}
+    \end{center}
+\end{frame}
+\begin{frame}[t]{What if...?}
+    ... if the order didn't matter?
+    
+    \vspace{.5em}
+    
+    How many ways can we \textit{\textbf{pick}} 3 people out of 15 to form the presidential cabinet?
+\end{frame}
+
+\begin{frame}[t]{What if...?}
+    ... if the order didn't matter?
+    
+    \vspace{.5em}
+    
+    How many ways can we \textit{\textbf{pick}} 3 people out of 15 to form the presidential cabinet?
+
+    \vspace{1.5cm}
+
+    The distinction is very important to know: it will aid in determining what type of problem you are trying to solve, which is then useful once you are familiar with different types of problems (which there aren't really that many of when you begin).
+\end{frame}
+
+\begin{frame}[t]{Another important function: Combination}
+    \begin{definition}
+        We define a choose function that takes in two inputs $n$ and $k$ and outputs the number of ways to choose $k$ objects out of the $n$ total objects. This is the function
+        \[
+        _nC_k=\binom nk=\frac{n!}{(n-k)!\cdot k!}
+        \]
+    \end{definition}
+    
+    \vspace{2cm}
+    
+    For example, if we want to choose $6$ slices out of the total $7$ of spaghetti that Sreyas Sabbani sliced, we employ the combination $\binom 76=\frac{7!}{6!1!}=7$ ways.
+\end{frame}
+
+\begin{frame}[t]{Quicker Quiz}
+    How many ways are there to arrange the letters of the word?
+    \[ABAAB?\]\\
+    \vspace{1.5cm}
+    How about:
+    \[1211212\]
+\end{frame}
+\begin{frame}[t]{Different Events}
+    \begin{definition}
+        If we have multiple independent events, the product of the number of possible situations of each event will be the total number of possible solutions.
+    \end{definition}
+    \vspace{3cm}
+    If we wanted to find the number of different results we could get after flipping a coin and rolling a 6-sided dice, we could multiply the number of ways for each event giving us 2 for the coin and 6 for the dice giving us 2 $\cdot$ 6 = 12 different results.
+\end{frame}
+\begin{frame}[t]{Quickest Quiz}
+    If Sreyas has six different spaghetti, Rohan has seven different rockets, Marty has four different mugs and Varun has 3 different vehicles, how many ways are there to give Billy the Baby one spaghetti, rocket, mug and vehicle?
+\end{frame}
+\begin{frame}[t]{Circular Permutations}
+    \begin{definition}
+        There will be \[
+        \frac{n!}{n} = (n-1)!
+        \]
+        ways to place n people around a circle.
+        
+    \end{definition}
+    \vspace{2.5cm}
+    For example, if we would like to place 5 people around a circular table, we would have \[\frac{5!}{5} = (5-1)! = 4 \cdot 3 \cdot 2 \cdot 1 = 24\]
+
+\end{frame}
+\begin{frame}[t]{Lightning Quiz}
+    How many ways are there to seat 7 people on a carousel? \\
+    \vspace{2.5cm}
+    What if the carousel has only 6 seats?
+\end{frame}
+\section{Worksheet!}
+\end{document}

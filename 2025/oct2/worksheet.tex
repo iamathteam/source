@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{asymptote}
+
+\usepackage{amsmath, enumitem, graphicx, geometry}
+\usepackage[inline]{asymptote}
+\geometry{margin=1in}
+\begin{asydef}
+usepackage("bm");
+texpreamble("\def\V#1{\bm{#1}}");
+import geometry;
+\end{asydef}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Intro to Combinatorics}\\[0.25cm]
+{\large 2 October, 2025}\\[1cm]
+\end{center}
+
+\begin{enumerate}[itemsep=2.85cm]
+    \item Freddie the frog finds five friends for fun. Fred, Freddie's different friend, has five different fruits for the five friends of Freddie. If each friend of Freddie get one fruit each, how many ways are there to give Freddie's five friends (not including Fred) the fruit?
+    \item Marty has 2 muffins and has to reward 2 students out of 16 with the muffins. How many ways are there to reward the students? Assume both the muffins are the same. 
+    \item Marty has a mango muffin and an M\&M muffin and has to reward 2 students out of 16 with the muffins. How many ways are there to reward the students?
+    \item How many ways are there to arrange the letters of the word "BOOKKEEPER"?
+    \item In Gen Zealand there are sixty-seven people zealously running for the council. If we need to assign a president, vice president and 4 cabinet members, how many different council positions are possible. \textit{You do not need to simplify your answer.}
+    \item There are 6 boys and 7 girls sitting in a circle. How many ways are there to seat the children if no 2 boys can sit next to each other?
+    \item The Detroit Lions have 3 Quarterbacks on the team, 4 Running Backs, 2 Tight Ends and 5 Wide Receivers. How many ways are there to build an option offense if an option offense consists of 1 Quarterback, 2 running back, 1 tight end and 2 receivers? JARED GOFF!
+    \item Each season ohio state university plays 10 football games. Over the next 4 seasons, they will play a total of 40 games. In each season, they lose exactly one game to the University of Michigan. How many different ways can the buckeyes lose one game to the Wolverines in each of the 4 seasons?
+    \item Varun the venturer likes to venture into virtual grids. However, he may only move up or to the right. How many unique paths can he travel in the following grid?
+    \begin{center}
+    \begin{asy}
+    size(5cm);
+    pair A = (0,0), B = (7,7);
+    dot(A);
+    dot(B);
+    label("Start", A, SW);
+    label("End", B, NE);
+    for (int i = 0; i <= 7; ++i) {
+        draw((i, 0) -- (i, 7));
+        draw((0, i) -- (7, i));
+    }
+    \end{asy}
+    \end{center}
+    \item Dusty Crophopper must choose a tail number for his next race. A tail number consists of 4 digits and 3 letters. If Dusty wants exactly 2 9's in his tail number, how many choices does Dusty have for his tail number?
+    \item \textit {Sneak Peek for Next Practice}: Rohan really relishes red rockets. Rohan is required to return 14 red rockets to 4 children. If each child needs to receive at least 1 red rocket, how many ways are to give out the red rockets?
+  
+\end{enumerate}
+\end{document}

@@ -1,0 +1,184 @@
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles}
+\usepackage{etoolbox}
+\usepackage{animate}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Intermediate Combinatorics I]{Intermediate Combinatorics I}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Oct. 9, 2025}
+%---------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Reminders}
+
+\begin{frame}[t]{Upcoming Competitions and Events}
+    Please \textit{\textbf{sign up}}!
+    \vspace{0.2cm}
+    \begin{enumerate}
+        \item Georgia Math League \# 1  % gauge how many papers we need to print out
+        \begin{itemize}
+            \item October 23!
+        \end{itemize}
+        \item UGA
+        \begin{itemize}
+            \item October 25!
+            \item In-person; Zell B. Miller Learning Center (right across nice dining hall)
+        \end{itemize}
+        \item KSU
+        \begin{itemize}
+            \item October 29!
+            \item At school
+        \end{itemize}
+        \item AMC 10/12
+        \begin{itemize}
+            \item A's on November 5, B's on November 13
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\section{Stars and Bars}
+
+\begin{frame}[t]{Types}
+    Recap of problem types from last practice:
+    \begin{itemize}
+        \item Ordering distinct items
+        \item Picking distinct items with and without order
+        \item Rearranging strings (grid movement)
+        \item Arranging people in a circle
+    \end{itemize}
+    
+    \vspace{2.067cm}
+    
+    This week we will be focusing on the problems with indistinguishable items.
+\end{frame}
+
+\begin{frame}[t]{A classic problem}
+    If we have 9 candies, how many ways are there for us to distribute them to 3 different people.
+
+    \begin{itemize}
+        \item How do we count these?
+    \end{itemize}
+    
+    \vspace{4cm}
+    
+    We will need to use a method called stars and bars to solve this question.
+\end{frame}
+
+\begin{frame}[t]{Framing Stars and Bars}
+    Consider the following setup
+    \[
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star\hspace{0.1cm}
+        \star
+    \]
+    
+    \[|\hspace{0.67cm}|\]
+\end{frame}
+
+\begin{frame}[t]{Stars and Bars I}
+    \begin{definition}
+    The number of ways to distribute $m$ things to $n$ people can be represented rearranging $m$ stars and $n-1$ bars. The number of ways to do this is
+    \[
+    \binom{m+n-1}{n-1}
+    \]
+    \end{definition}
+\end{frame}
+
+\begin{frame}[t]{Quick Quiz}
+    How many ways are there for nonnegative integers $a,b,c,d$ to satisfy \[a+b+c+d=18\]  
+    
+    \vspace{2cm}
+    
+    For example, the quadruplet $(a,b,c,d)=(6,7,4,1)$ works.
+\end{frame}
+
+\begin{frame}[t]{What if...?}
+    ...you needed the integers in the previous slide to be positive?
+
+\end{frame}
+
+\begin{frame}[t]{What if...?}
+    ...you needed the integers in the previous slide to be positive?
+
+    \vspace{2cm}
+
+    Use $a=a'+1,\;b=b'+1,\;c=c'+1,\;d=d'+1$ (this is because $a,b,c,d$ are positive so we allow $a',b',c',d'$ to be nonnegative).
+    So 
+    \[
+        a'+b'+c'+d'=14
+    \]
+\end{frame}
+
+\begin{frame}[t]{Stars and Bars II}
+    Using this same logic from above we can also apply this to other numbers. If we needed at least 2, we can proceed to substitute the $a=a'+2$.
+    \vspace{2cm}
+
+    For example if we have 3 people and 8 objects, person A needs 1 object, person B needs 2 objects and person C needs 3 objects. 
+    $A+B+C=8$ , $A=A'+1$, $B=B'+2$ and $C=C'+3$
+    Thus we get $A'+B'+C'=2$ and we will have 2 bars and 2 stars with no restrictions.
+
+\end{frame}
+
+\begin{frame}[t]{Quicker Quiz}
+    Marty, a magical magician has 67 Twix up his sleeve for 10 kids. If each kid shall receive at least 5 Twix, how many ways are Marty to give the kids the Twix?
+    \vspace{2cm}
+    
+    Varun lost his interest in chess and is now a full time mathematician. He had a total of 30 indistinguishable boards and would like to donate them to 5 organizations named Archimedes, Bernoulli, Cayley, Dirac, and Euler. If Varun would like to give Archimedes 1 board, Bernoulli 2 boards... , how many ways can he distribute them?
+\end{frame}
+
+\section{Worksheet!}
+
+\end{document}

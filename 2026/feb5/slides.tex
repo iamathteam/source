@@ -1,0 +1,162 @@
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles, angles, quotes, intersections}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Modular Arithmetic]{Modular Arithmetic}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Feb. 5, 2026}
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+\section{Introduction}
+\begin{frame}[t]{Competitions}
+We have some upcoming competitions. Please sign up!!
+\vspace{1cm}
+\begin{enumerate}
+    \item Floyd County - 2/21
+    \item Westminster Math Competition - 3/14
+    % \item GCTM Varsity State 4/18
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]{T-Shirts}
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{frontnew.png}
+        \label{new}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{backnew.png}
+        \label{back}
+    \end{minipage}
+\end{figure}
+IF YOU WOULD LIKE A T-SHIRT AND HAVE ALREADY PAID DUES, PLEASE SUBMIT THE FORM RIGHT NOW.
+\end{frame}
+
+\section{Basics}
+\begin{frame}{What is Mod?}
+\begin{definition}
+    For two integers $m$ and $n$, define $m$ \textit{modulo} $n$ as the remainder when $m$ is divided by $n$. We denote this by $m\pmod{n}$.
+\end{definition}
+\begin{definition}
+    We say that $a$ is congruent to $b$ modulo $n$ when $a$ and $b$ have the same remainder when divided by $n$, or equivalently $a-b$ is divisible by $n$. This is denoted
+    \[a\equiv b\pmod n\]
+\end{definition}
+    
+\end{frame}
+\begin{frame}{Blackbird Quiz}
+    1. Find $15 \pmod{4}$ \\
+    \vspace{1cm}
+    2. Find $18 \pmod{5}$ \\
+    \vspace{1cm}
+    3. Find a number $a\neq12$ that is \[a\equiv 12\pmod{16}\]
+\end{frame}
+\begin{frame}{Negative Mods}
+        Some of these terms can also be negative and this may be very helpful while solving some problems. \\
+    For example: $-1 \equiv 11\pmod{12}$ \\
+    For example: $-1 \equiv 11\pmod{6}$ \\
+    For example: $-1 \equiv 7\pmod{8}$ 
+\end{frame}
+
+\begin{frame}{F1 Quiz}
+1. Find 3 negative values that satisfies $X$. $X\equiv 9\pmod{14}$    
+\end{frame}
+
+
+\begin{frame}{Properties of Mods}
+    \begin{definition}
+        The modulo function can also be added and multiplied quite easily.\\
+        $a\pmod{n}+b\pmod{n}  = a+b\pmod{n}$\\
+        $a\pmod{n}*b\pmod{n}  = a*b\pmod{n}$\\
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Example for Addition}
+    $a\pmod{n}+b\pmod{n}  = a+b\pmod{n}$\\
+    \vspace{1cm}
+For example if we want to find $21+67\pmod{10}$ \\
+\vspace{1cm}
+This will be the same as $21\pmod{10}+67\pmod{10}$
+\end{frame}
+
+\begin{frame}{Expeditious Quiz}
+    1. What is $34+71\pmod{11}$
+\end{frame}
+
+\begin{frame}{Example for Multiplication}
+    $a\pmod{n}*b\pmod{n}  = a*b\pmod{n}$\\
+    \vspace{1cm}
+For example if we want to find $13*16\pmod{10}$ \\
+\vspace{1cm}
+This will be the same as $13\pmod{10}*16\pmod{10}$
+\end{frame}
+
+\begin{frame}{Cheetah Quiz}
+    1. What is $51*84\pmod{13}$
+\end{frame}
+
+\begin{frame}{Exponents}
+    We have that if $a\equiv b\pmod{n}$ then for any integer $m$, \[a^m\equiv b^m\pmod n\], by using the multiplication property.
+\end{frame}
+\begin{frame}{Swift Quiz}
+    Find the remainder when $30^{2026}$ is divided by $29$.
+\end{frame}
+\begin{frame}{Chinese Remainder Theorem}
+    \begin{theorem}
+    For ANY integers $k,m,n$ with $m$ and $n$ relatively prime, $k \pmod{mn}$ corresponds with two values $k\pmod n$ and $k\pmod m$ and vice versa. 
+    \end{theorem}
+    For example note that $6=2\cdot3$. If we want to find, for example, $101\pmod6$, then we could find $101\pmod2$ and $101\pmod 3$, which are $1$ and $2$, respectively. Now we know that $1\pmod2$ and $2\pmod3$ must satisfy $5\pmod6$. We see how this works in an example.
+\end{frame}
+
+\begin{frame}{Rapid Quiz}
+    Find the remainder when $22^{22}$ is divided by $14$. (Hint: $14=2\cdot7$.)
+\end{frame}
+\end{document}

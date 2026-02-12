@@ -1,0 +1,48 @@
+\documentclass[inline]{article}
+\usepackage{amsmath, enumitem, graphicx, geometry}
+\usepackage[inline]{asymptote}
+\geometry{margin=1in}
+
+\begin{asydef}
+usepackage("bm");
+texpreamble("\def\V#1{\bm{#1}}");
+import geometry;
+\end{asydef}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Intermediate Combinatorics I}\\[0.25cm]
+{\large 9 October, 2025}\\[1cm]
+\end{center}
+
+\begin{enumerate}[itemsep=2.85cm]
+    \item Rohan the real rock roller has 10 identical real round rocks. He has 5 really roaring rooters that he wants to give the rocks to. How many ways can Rockin' Rohan give out the rocks?
+    \item The Penn State Nittany Lions play the UCLA Bruins. If sum of the team's scores was 79, how many ways are there for Penn State to lose the game? Please use stars and bars to solve this question.
+    \item Stars and bars (balls and urns/boxes, etc) are used in relevant fields. Take the following example, an exercise in statistical mechanics. 
+    \begin{itemize}
+        \item Think of bosons as particles of interest, and they are all identical (if you're a physics nerd, this is Pauli exclusion principle).
+        \item Each boson can have different discrete (``quantized'') energies $\varepsilon_1, \varepsilon_1, \varepsilon_2,\varepsilon_4$.
+        \item Think of the total number of microstates, $\Omega$, as how many distributions of bosons exist.
+    \end{itemize}
+    How many microstates can a system of 3 bosons have if there are only 4 energy levels?
+    \item Sreyas the serious shark stored seven small identical schools of seafish. Sreyas sadly has only two friends. How many ways can Sreyas and his 2 friends eat the seven identical schools if each of them must receive at least one school of seafish
+    \item Maintenance man Marty maintains 10 different mansions. Marty also mentors 3 minions. How many ways are there for Marty to give out the mansions to his minions.
+    \item If each of $a, b, c, d$ are non-negative integers, how many different quadruplets of $(a,b,c,d)$ are there?
+    \[
+        a+b+c+d=10
+    \]
+    \item What if the integers in question 5 must be positive?
+    % \begin{asy}
+    %     size(5cm);
+    %     dot((0, 0));
+    % \end{asy}
+    \item How many ways are there for a phone number to have its digits add up to 85? (Hint: think about the inverse of the problem)
+    \item Carlos Alcaraz and Alexander Zverev are facing off in a tennis match. During a break in the match, they have played a total of 21 points. If Zverev has won 12 points, how many ways could he have won those 12 points.
+    \item If there are 6 tennis players, 7 football players, 4 soccer players, and 1 basketball player, and you have 5 medicine balls, how many ways can you distribute these balls to the players? Note that the balls are considered identical.
+    
+    \item \textit{Sneak Peek for Next Practice}: Replicate Rohan is playing a carnival game. He must hang on a rung for 30 seconds to win 1 dollar, 1 minute to win 2 dollars and 2 minutes to win 10 dollars. He is very strong and has a 20\% chance of hanging for 2 minutes, 40\% chance of hanging for 1 minute and 40\% chance of hanging for 30 seconds. Should Rohan play the game and what is expected value of profit? \textit{(We all know that the REAL Rohan has a 100\% chance of hanging on for 2 minutes)}
+    
+    % \item How many numbers less than 1000 are not divisible to all one-digit prime?
+\end{enumerate}
+\end{document}

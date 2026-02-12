@@ -1,0 +1,108 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+% \usepackage[brazil]{babel}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+%----------------------------------------------------------------------------------------
+%    LAYOUT CONFIGURATION
+%----------------------------------------------------------------------------------------
+\input{configs/configs}
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+\input{configs/title_page} 
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Reminders (5 min)}
+
+\begin{frame}[t]{Upcoming Competitions and Events}
+    % ???? QUESTION -- should we write sign up deadlines here which will be 1-2 days (or more) before the actual deadline listed on website so we can sign up as a team earlier 
+    Please take note of the following:
+    \vspace{0.2cm}
+    \begin{enumerate}
+        \item Fill out interest form for GML (Georgia Math League)  % gauge how many papers we need to print out
+        \begin{itemize}
+            \item First competition! Early October!
+        \end{itemize}
+        \item UGA
+        \begin{itemize}
+            \item October 25
+            \item In-person; Zell B. Miller Learning Center (right across nice dining hall)
+        \end{itemize}
+        \item KSU
+        \begin{itemize}
+            \item October 29
+            \item At school
+        \end{itemize}
+        \item AMC 10/12
+        \begin{itemize}
+            \item Sign up THIS WEEK! (early bird registration saves money!)
+            \item A's on November 5, B's on November 13
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+% --- IMPORTANT: SPEAKER NOTES
+% 
+% explain why we are having a practice instead of something more "conventional"
+% 
+% we have tried a mock team "tournament" last year once and it turned out fine, and we thought since we have a higher "turn-out rate" in block meetings than morning practices (which you guys should come to!), this team format would be nice
+
+\section{Block Practice (35 min)}
+
+\begin{frame}[t]{Format}
+    % SPEAKER NOTES: so this is a new format but trust me guys it will be very fun
+    Today's activity will be entirely team-based\textsuperscript{\textdagger}. Please try to pick teams of 3-4. 
+    
+    \vspace{1em}
+    
+    With your teams, you all will go through the following mock "tournament" today, which will structured as follows.
+    \vspace{1.5em}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item Round 1
+        \item Round 2
+        % SPEAKER NOTES: mention that most people won't get to either the bonus round 
+        \item Exploration Round
+        \begin{itemize}
+            \item Learn about Newton sums (Newton's identities)! 
+            \item This builds on last week's topic: Vieta's formulae
+            \item \textsuperscript{\textdagger}This may be the exception. You may choose to work individually as everyone gets their own copy (also to take home).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\end{document}

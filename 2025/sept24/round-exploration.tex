@@ -1,0 +1,128 @@
+\documentclass{tufte-handout}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{./graphics/}}
+
+\title{Block Practice — Exploration Round: Newton Sums}
+\author[IA Math Team]{}
+\date{24 September 2025}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+\usepackage{multicol}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\nn}[1]{\vspace{#1}\noindent}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+You may approach this either with your team or on your own.
+This exploration is entirely \emph{student-centered}: you will \textbf{discover} Newton sums (Newton's identities) by experimenting, forming conjectures, and proving them.
+
+\nn{1em}Enjoy!
+
+\end{abstract}
+
+\section*{Warm-up}
+For each polynomial, compute the indicated \textbf{power sums}\footnote{Definition: for a polynomial with roots $r_1,\dots,r_n$ define
+\[
+P_k=\sum_{i=1}^n r_i^k = r_1^k+r_2^k+\cdots+r_n^k.
+\]
+
+Note a special case $P_0=n$
+} via Vieta's formulae. 
+
+\vspace{1em}
+\begin{enumerate}[label=\textbf{W\arabic*.}, leftmargin=*, itemsep=0.5em]
+  \item Polynomial: $x^2-5x+6$. Compute $P_1, P_2, P_3$ of the roots.
+  \item Polynomial: $x^3-6x^2+11x-6$. Compute $P_3$ of the roots.
+  \item Polynomial: $x^2-3x+1$. Compute $P_2$ and $P_3$ of the roots.
+\end{enumerate}
+
+\vspace{2em}
+\section*{Exploration}
+\textbf{Goal:} Observe how sums of powers of roots relate to the coefficients of a polynomial.
+You will attack this via examples and pattern-finding.
+
+\subsection*{Step A — Observation}
+\begin{enumerate}[label=\textbf{A\arabic*.}, leftmargin=*, itemsep=3em]
+  \item (Write and align) For the cubic polynomial
+  \[
+    f(x)=x^3+4x^2+5x+7,
+  \]
+  let $r_1, r_2,$ and $r_3$ be the roots. Write the three equations $f(r_1)=0,\; f(r_2)=0,\; f(r_3)=0$. \textit{Do not cancel; simply write these equations with $r_i$ substituted for $x$.} To better see the pattern, write one equation beneath the other, aligning like powers (that is, line up the $r_i^3$ terms, the $r_i^2$ terms, the $r_i$ terms, and the constants). 
+  \item (Add and observe) Add those three aligned equations term-by-term. What does each column become? (Hint: the column of $r_i^2$ terms becomes $P_2$ times the coefficient, the column of $r_i^1$ terms becomes $P_1$ times the coefficient, and the $r_i^0$ column becomes $P_0$ times the coefficient\footnote{Actually $P_0=\text{power of } f(n)=3$}.)
+  \item Let's generalize this! Start with the polynomial
+\[
+f(x)=a_nx^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \cdots + a_1 x + a_0,
+\]
+
+and let its roots be $r_1,\dots,r_n$. Again, each root $r_i$ satisfies $f(r_i)=0$. Repeat the same steps but for this general polynomial: substitute $r_1,r_2,\dots,r_n$ for $x$; you will end up with $n$ equations and a pattern.\footnote{You may want to use dots between the $n$ equations}
+
+\vspace{18em}
+Once you are done, you will have the following equation:
+\begin{equation}\label{eq:1}
+a_nP_n+a_{n-1}P_{n-1}+\cdots+a_1P_1+a_0P_0=0
+\end{equation}
+
+Isolate $P_n$. Now, we have written a recursion. However, we do not know the values of $P_{n-1}, P_{n-2},\dots,P_1$ (although $P_0=n$ always). 
+
+\item Find an analog for equation (\ref{eq:1}) for $P_{n-1}, P_{n-2},\dots,P_1,P_0$. Hint: multiply each equation $f(r_i)=0$ by $r_i^{k-n}$.
+\vspace{18em}
+
+  % \item (Multiply to see higher powers) To relate higher power sums $P_k$ to coefficients, take the single-root identity $f(r_i)=0$ and multiply it by $r_i^{m}$ for various integers $m\ge0$ (for instance multiply by $r_i$ to get $r_i^{n+1}$ terms, or by $r_i^{k-n}$ to isolate $r_i^k$). After multiplying, repeat the ``write, align, add'' step. What new patterns appear?
+  % \item (Record small examples) Using this technique for the cubic above, explicitly produce the identities you get for the sums corresponding to multiplying by $r_i^0$ (no multiplication) and by $r_i^1$. Write the resulting two relations in terms of $S_1,S_2,S_3$ and the coefficients $c_j$.
+\end{enumerate}
+\vspace{3em}
+
+\subsection*{Step B — Conjecture}
+Now turn your observations into a conjecture.
+
+\begin{enumerate}[label=\textbf{B\arabic*.}, leftmargin=*, itemsep=1em]
+  \item Based on the observations above, write a conjecture. Now, we can finally get to the question:
+  
+  \textit{How does $P_k$ relate linearly to previous power sums $P_{k-1},P_{k-2},\dots$ and to the coefficients $c_j$?}
+
+  We caution you this will only work for $k\ge n$.
+
+  \vspace{20em}
+  
+  \item Test your conjecture on an easy polynomial where you know the roots (for example $x^3-6x^2+11x-6$ whose roots are $1,2,3$). Check the identities for $k=1,2,3$.
+
+  \vspace{10em}
+\end{enumerate}
+
+\subsection*{Step C — Proof}
+We leave it now to you to write a concise proof.
+
+\vspace{20em}
+\section*{Summary}
+
+Newton sums (also called Newton's identities) produce \emph{power sums} $P_k=\sum r_i^k$ of a polynomial's roots by writing linear relations between $P_k$ and earlier power sums together with the polynomial's coefficients. In contrast, Vieta's formulas directly express the \emph{elementary symmetric sums} (the symmetric polynomials like $r_1+r_2+\cdots$, sum of pairwise products, etc.) in terms of coefficients. Put differently: \textbf{Vieta $\Rightarrow$ elementary symmetric sums; Newton sums $\Rightarrow$ power sums.} The two are related: Newton sums express each power sum as a linear combination whose coefficients are the elementary symmetric sums (equivalently, the polynomial coefficients).
+
+\bigskip
+\section*{Practice Problems}
+The following are designed to cement the discovery and practice applying Newton sums.
+
+\begin{enumerate}[label=\textbf{P\arabic*.}, leftmargin=*, itemsep=1.2em]
+  \item Given $f(x)=x^3-4x^2+5x-2$, compute $P_1,\dots, P_5$.
+  \item For $x^2-3x+1$, use the recurrence you discovered to compute $P_6$.
+  \item Let $s_k$ denote the sum of the $\textit{k}$th powers of the roots of the polynomial $x^3-5x^2+8x-13$. In particular, $s_0=3$, $s_1=5$, and $s_2=9$. Let $a$, $b$, and $c$ be real numbers such that $s_{k+1} = a \, s_k + b \, s_{k-1} + c \, s_{k-2}$ for $k = 2$, $3$, $....$ What is $a+b+c$?
+  \item Suppose a monic cubic has $P_1=2,\; P_2=3,\; P_3=-4$. Use Newton sums to find the polynomial's coefficients $c_1,c_2,c_3$.
+  \item Show how Newton sums change if you consider the polynomial whose roots are the reciprocals of the original roots. 
+  (Hint: consider $x^n f(1/x)$ and compare power sums of reciprocals.)
+  \item Use Newton sums to compute $r_1^5+r_2^5+r_3^5$ where $r_1,r_2,r_3$ are the roots of $x^3-6x^2+11x-6=0$.
+\end{enumerate}
+
+\bigskip
+
+\end{document}

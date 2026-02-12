@@ -1,0 +1,69 @@
+\documentclass{tufte-handout}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{./graphics/}} % DO RELATIVE FILE PATHS EVEN WORK??? 
+
+\title{Vieta's Formulae}
+\author[IA Math Team]{}
+\date{18 September 2025}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+\usepackage{multicol}
+
+\usepackage{lipsum}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}
+\newcommand{\docenv}[1]{\textsf{#1}}
+\newcommand{\docpkg}[1]{\texttt{#1}}
+\newcommand{\doccls}[1]{\texttt{#1}}
+\newcommand{\docclsopt}[1]{\texttt{#1}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\begin{itemize}
+\item This handout contains problems dealing with Vieta's formulas, roots, and polynomials.
+\item Difficulty somewhat increases as you go.
+\end{itemize}
+\end{abstract}
+
+
+\section{}
+\begin{enumerate}
+    \item If $\alpha, \beta$ are the roots of the quadratic $f(x)=x^2+5x-3$, determine the value of $\alpha^2+\beta^2$.
+    \item (AHSME) Let $p$, $q$, and $r$ be the distinct roots of $x^3 - x^2 + x - 2 = 0$. Find $p^3 + q^3 + r^3$.
+    \item If $x_1, x_2$ are the roots of the equation $x^2-4x+1=0$, calculate the value of the following expression.
+    \[\left(x_1-\dfrac1{x_1}\right)^2+\left(x_2-\dfrac1{x_2}\right)^2\]
+    \item Let $r_1,r_2,r_3$ be the roots of the polynomial $f(x)=x^3-24x^2+38x-67$. What is their sum and product?
+    \item Find all integers \(m\) such that the quadratic $x^2-(m+1)x+m$ has positive integer roots.
+    \item Let $a,b$ be roots of the quadratic $x^2+3x+1$. Find $\frac ab + \frac ba$.
+    \item Let $r_1,r_2,r_3$ be the roots of the polynomial $5x^3-11x^2+7x+3$. Find
+    \[r_1(1+r_2+r_3)+r_2(1+r_1+r_3)+r_3(1+r_1+r_2).\]
+    \item ($2022$ AMC $10$A) The roots of the polynomial $10x^3 - 39x^2 + 29x - 6$ are the height, length, and width of a rectangular box (right rectangular prism). A new rectangular box is formed by lengthening each edge of the original box by $2$ units. What is the volume of the new box?
+    \item Find the sum of the roots of the function $f(x)=4^x-13\cdot 2^x+64$. \\
+    \textit{Hint: } Make the function a polynomial via substitution.
+    \item ($2003$ AMC $10$A) What is the sum of the reciprocals of the roots of the following equation? 
+    \[\frac{2003}{2004}x+1+\frac{1}{x}=0\]
+    \item ($2019$ CMU ARML Practice) A quadratic equation $ax^2 - 2ax + b = 0$ has two real solutions. What is the average of these two solutions?
+    \item ($2019$ CMU ARML Practice) Let $a$ and $b$ be the roots of the equation $x^2 - mx + 2 = 0$. Suppose that $a + (1/b)$ and $b + (1/a)$ are the roots of the equation $x^2 - px + q = 0$. What is $q$?
+    \item  (HMMT $1998$) Three of the roots of $x^4 + ax^2 + bx + c = 0$ are $2$, $-3$, and $5$. Find the value of $a + b + c$.
+    \item (AIME $2001$) Find the sum of the roots of the equation $x^{2001}+(\frac12-x)^{2001}=0$.
+    \item (AIME $1996$) Let the roots of $x^3+3x^2+4x-11=0$ are $a,b,c$. If $a+b,b+c,c+a$ are roots of the polynomial $x^3+rx^2+sx+t$, find $r$. \\\textit{Challenge: } Find $t$.
+    % \item (Marty's Brain) Let $\omega$ be a primitive $101$th root of unity. Find
+    % \[\prod_{k=1}^{101}(4\omega^{2k}+2\omega^k+1)\]
+    
+\end{enumerate}
+
+\end{document}

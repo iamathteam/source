@@ -1,0 +1,78 @@
+name: Build LaTeX PDFs
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Folder or tex file to build (e.g. 2025-26/sept18 or 2025-26/sept18/main.tex)'
+        required: false
+        default: '2025-26'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Normalize target -> determine root .tex
+      id: find_root
+      run: |
+        set -euo pipefail
+        TARGET="${{ github.event.inputs.target || '2025-26' }}"
+
+        # If the user passed a file, use it
+        if [ -f "$TARGET" ]; then
+          echo "found file as target: $TARGET"
+          echo "root_file=$TARGET" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        # If user passed a directory that contains main.tex, use that
+        if [ -f "${TARGET}/main.tex" ]; then
+          echo "found main.tex in folder: ${TARGET}/main.tex"
+          echo "root_file=${TARGET}/main.tex" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        # Try to find a single top-level .tex in the directory
+        TEXCOUNT=$(find "$TARGET" -maxdepth 2 -name '*.tex' | wc -l | tr -d ' ')
+        if [ "$TEXCOUNT" -eq 1 ]; then
+          FILE=$(find "$TARGET" -maxdepth 2 -name '*.tex' | head -n1)
+          echo "found one tex file: $FILE"
+          echo "root_file=$FILE" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        # If multiple .tex, prefer a file named *_main.tex or main.tex already checked
+        FILE=$(find "$TARGET" -maxdepth 2 -type f -name '*main.tex' | head -n1 || true)
+        if [ -n "$FILE" ]; then
+          echo "found *main.tex: $FILE"
+          echo "root_file=$FILE" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        echo "No root .tex found in '${TARGET}'. Searched for '${TARGET}', '${TARGET}/main.tex' and other .tex files." >&2
+        exit 1
+
+    - name: Show chosen root file
+      run: |
+        echo "Will build: ${{ steps.find_root.outputs.root_file }}"
+
+    - name: Build with xu-cheng latex action
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: ${{ steps.find_root.outputs.root_file }}
+        work_in_root_file_dir: true
+        # extra_packages can be used to add latexmk if needed (action includes latexmk typically)
+        extra_packages: latexmk
+
+    - name: Upload PDF(s)
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: built-pdfs
+        path: |
+          **/*.pdf

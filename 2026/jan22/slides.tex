@@ -1,0 +1,137 @@
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles, angles, quotes, intersections}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Number Theory]{GCD, LCM, and Euclidean Algorithm}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Jan. 22, 2026}
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]{Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Simple Start}
+
+\begin{frame}{GCD \& LCM}
+    \begin{definition}
+        GCD: greatest common divisor of two numbers
+        
+        LCM: least common multiple of two numbers.
+    \end{definition}
+    \begin{exampleblock}{Note}The GCD of two numbers is 1 if and only if the numbers are relatively prime.
+    \end{exampleblock}
+
+    \vspace{.5cm}
+    GCD of $12$ and $21$ $\rightarrow$
+    
+    \break
+    
+    LCM of $8$ and $14$ $\rightarrow$
+\end{frame}
+
+\begin{frame}[t]{Quick Quiz}
+    Question 1: Find $\gcd(134, 335)$.
+    \vspace{3cm}
+    
+    Question 2: Find the least common multiple of the same numbers above.
+\end{frame}
+\begin{frame}[t]{More GCD and LCM}
+    \begin{theorem}
+        For any two numbers $a$ and $b$, the product of their greatest common divisor and least common multiple will always be equal to the product of the two numbers.
+        $$\mathrm{lcm}(a, b)\cdot \gcd(a,b)=ab$$
+    \end{theorem}
+\vspace{2cm}
+    Try a few examples!
+\end{frame}
+
+\begin{frame}[t]{Quicker Quiz}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{frame}
+
+\section{Euclidean Algorithm}
+
+\begin{frame}[t]{How do you find GCDs?}
+    \begin{itemize}
+        \item $\gcd(134, 335)$
+        \item $\gcd(2026, 677)$
+        \item $\gcd(2267, 20677)$
+        \item $\vdots$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{So Euclid wanted to find $\gcd(2267,20677)$...}
+    \begin{theorem}[Euclidean Algorithm]
+        For integers $a,b,c$ with $b\neq0$:
+        {\Huge$$ \gcd(a,b)=\gcd(a-bc,b)$$}
+        \vspace{0.3cm}
+    \end{theorem}
+    
+\end{frame}
+\begin{frame}[t]{So Euclid wanted to find $\gcd(2267,20677)$...}
+    $\gcd(2267,20677)=$
+    
+\end{frame}
+\begin{frame}[t]{So Euclid wanted to find $\gcd(2267,20677)$...}
+    \begin{align*}&=\gcd({\color{cyan}2267},{\color{red}20677})\\&=\gcd({\color{cyan}2267},{\color{red}20677}-{\color{cyan}2267}\cdot{\color{purple}9})\\
+    &=\gcd(2267,274)\\
+    \\
+    &=\gcd({\color{red}2267},{\color{cyan}274})\\
+    &=\gcd({\color{red}2267}-{\color{cyan}274}\cdot{\color{purple}8},{\color{cyan}274})\\
+    &=\gcd(105,274)\\
+    &=1
+    \end{align*}
+    
+\end{frame}
+
+\section{Worksheet Time!}
+
+
+\end{document}
