@@ -1,0 +1,134 @@
+
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles, angles, quotes, intersections}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+% big first triple, smaller multiples underneath
+\newcommand{\triplestack}[3]{%
+\begin{tabular}{@{}c@{}}
+{\Large #1}\\[0.2em]
+{\scriptsize #2}\\[-0.2em]
+{\scriptsize #3}\\
+\vdots
+\end{tabular}%
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+
+% why were these two topics combined? no one will know.
+\title[Quads \& some Trig]{Quads \& some Trig}
+
+\author[IA Math Team]{IA Math Team}
+
+\vspace{-2cm}\date{Feb. 12, 2026}
+%---------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+% FLOYD COUNTY ANNOUNCEMENTS!!!
+\section{LISTEN UP!}
+
+\section{Warmup...}
+
+
+\begin{frame}[t]{2022 AMC 10A, \# 15}
+Quadrilateral $ABCD$ with side lengths $AB=7, BC=24, CD=20, DA=15$ is inscribed in a circle. The area interior to the circle but exterior to the quadrilateral can be written in the form $\frac{a\pi-b}{c},$ where $a,b,$ and $c$ are positive integers such that $a$ and $c$ have no common prime factor. What is $a+b+c?$
+\end{frame}
+
+
+\begin{frame}[t]{Pythagorean Triples Time!!!}
+How many do you know?
+\end{frame}
+
+\begin{frame}[t]{Pythagorean Triples Time!!!}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{tabular}{cccc}
+\triplestack{$(3,4,5)$}{$(6,8,10)$}{$(9,12,15)$} &
+\triplestack{$(5,12,13)$}{$(10,24,26)$}{$(15,36,39)$} &
+\triplestack{$(8,15,17)$}{$(16,30,34)$}{$(24,45,51)$} &
+\triplestack{$(7,24,25)$}{$(14,48,50)$}{$(21,72,75)$}
+\end{tabular}
+
+\vspace{2.6em}
+
+\begin{tabular}{cccc}
+\triplestack{$(20,21,29)$}{$(40,42,58)$}{$(60,63,87)$} &
+\triplestack{$(12,35,37)$}{$(24,70,74)$}{$(36,105,111)$} &
+\triplestack{$(9,40,41)$}{$(18,80,82)$}{$(27,120,123)$} &
+\triplestack{$(28,45,53)$}{$(56,90,106)$}{$(84,135,159)$}
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}[t]{Pythagorean Triples Time!!!}
+
+\begin{itemize}
+    \item It's not too important to know \textit{a ton} of triples (as opposed to your powers): the real test of skill becomes how you can:
+    \begin{itemize}
+        \item \textbf{\textit{Identify them in the wild}} (just like we did)
+        \begin{itemize}
+            \item Use them to show that some triangle is right
+            \item Use two to complete a triple
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+% Anyways, enough for triples and back to the actual topic of the day, which is quadrilaterals. 
+
+% Does anyone wanna ask why? The reason is because if I made the topic on Pythagorean triples, you would immediately know to use them in otherwise tricky problems - does that make sense? You guys will just be working on a worksheet on quadrilaterals this practice.
+
+% Some of these are advanced, such as knowing some concepts. We'll go around the classroom to gather small groups working on the same topic. 
+
+\end{frame}
+
+
+
+
+
+
+\end{document}

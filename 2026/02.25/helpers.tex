@@ -1,0 +1,56 @@
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{graphicx}
+
+% ---------- Helpful math macros ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brak}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+% ---------- Problem + choices formatting ----------
+\newcounter{problem}
+
+\newcommand{\problem}{%
+  \vspace{2cm}
+  \refstepcounter{problem}%
+  \par\medskip\noindent\textbf{\theproblem)}\ %
+}
+
+% Two-column choices (wrap-friendly; good for longer text)
+\newcommand{\choices}[5]{%
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\textbf{(\alph*)}, leftmargin=*, itemsep=0.25em, topsep=0.25em]
+    \item #1
+    \item #2
+    \item #3
+    \item #4
+    \item #5
+  \end{enumerate}
+  \end{multicols}
+}
+
+% Optional: one-line choices (compact; best for short answers)
+\newcommand{\choicesH}[5]{%
+  \begin{center}
+  \begin{tabular}{@{}lllll@{}}
+    \textbf{(a)}~#1 & \textbf{(b)}~#2 & \textbf{(c)}~#3 & \textbf{(d)}~#4 & \textbf{(e)}~#5
+  \end{tabular}
+  \end{center}
+}
+
+% Figure placeholder box (so your .tex compiles even before you add images)
+\newcommand{\figplaceholder}[1]{%
+  \begin{center}
+    \fbox{\parbox{0.75\linewidth}{\centering\vspace{1.2cm}#1\\(insert figure here)\vspace{1.2cm}}}
+  \end{center}
+}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}

@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath, enumitem, graphicx, geometry}
+\geometry{margin=.8in}
+\usepackage[inline]{asymptote}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries General Combinatorics}\\[0.25cm]
+{\large 12 February, 2026}\\[1cm]
+\end{center}
+
+\begin{enumerate}[itemsep=2.5cm]
+    \item Let's start with some warm up. Simplify; answers should be whole numbers.
+    $$\binom{8}{7}=\;\;\rule{1cm}{0.4pt} \qquad  \binom{8}{5}+\binom{8}{4}=\;\;\rule{1cm}{0.4pt}\qquad \binom{67}{65}=\;\;\rule{1cm}{0.4pt}\qquad\binom{7}{1}+\cdots+\binom{7}{7}=\;\;\rule{1cm}{0.4pt}$$
+    \item (2018 AMC 10A) How many ways can a student schedule 3 math courses in a 6-period day if no two math courses are in consecutive periods?
+    % \item (2021 AMC 12A) A choir director must select a group of singers from among his $6$ tenors and $8$ basses. The only requirements are that the difference between the number of tenors and basses must be a multiple of $4$, and the group must have at least one singer. Let $N$ be the number of different groups that could be selected. What is the remainder when $N$ is divided by $100$?
+    \item How many 4-digit positive integers are there such that no two consecutive digits are equal?
+    \item A fair coin is flipped 5 times. What is the probability that no two consecutive flips have the same result?
+    \item In a league called the Marty Motorsport Members, There are 8192 members. Max Verstappen is the top seeded player. If each person plays single elimination races in a bracket format. If the top seed has a 50\% chance of winning each race, what are the odds Max wins the League.
+    \item How many people do we need in a room to guarantee that at least 3 people have the same birthday?
+    \item In a stack of playing cards there are 51 cards. Darth Vader also rolls a 16 sided dice numbered with the first 16 prime numbers. What is the probability that Darth Vader rolls 13 and has exactly 13 Spades?
+    \item Rohan Bangal is on the ATP tour. He needs to play in exactly 5 of the 8 Masters 1000 tournaments, exactly 4 of the 9 ATP500 Tournaments and exactly 3 of the 6 ATP250 tournaments. If Rohan plays in the Cincinnati 1000 tournament, how many ways can he create his schedule for the tour? \\
+    \vspace{2cm}
+    \item Luke Skywalker really needs to escape from the storm troopers, who are in each square in the grid. Luke wants to know how many ways he can make it to the end given he can only move 2 up or 1 right each time.
+    \begin{center}
+    \begin{asy}
+    size(5cm);
+    pair A = (0,0), B = (7,6);
+    dot(A);
+    dot(B);
+    label("Start", A, SW);
+    label("End", B, NE);
+    for (int i = 0; i <= 6; ++i) {
+        draw((0, i) -- (7, i));
+    }
+    for (int i = 0; i <= 7; ++i) {
+        draw((i, 0) -- (i, 6));
+    }
+    \end{asy}
+    \end{center}
+    \item There are a total of 67 cities in Rohanland. A city is uncool if it has no tennis court or football field and Sportified if it has both. If 41 cities have a tennis court, 26 have a football field and 27 are uncool, how many cities are Sportified.
+    \item (2016 AMC 10A) For some particular value of $N$, when $(a+b+c+d+1)^N$ is expanded and like terms are combined, the resulting expression contains exactly $1001$ terms that include all four variables $a, b,c,$ and $d$, each to some positive power. What is $N$? 
+    \item (2019 AMC 10B) How many sequences of $0$s and $1$s of length $19$ are there that begin with a $0$, end with a $0$, contain no two consecutive $0$s, and contain no three consecutive $1$s?
+\end{enumerate}
+
+\end{document}
