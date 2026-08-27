@@ -5,73 +5,10 @@
 \begin{center}
 {\Large\bfseries ``$\Sigma$" Floyd County Questions...}\\[0.25cm]
 {\small TRY WITH NO CALCULATOR FIRST!}\\[0.25cm]
-{\large 25 February, 2026}\\[1cm]
+{\large 19 March, 2026}\\[1cm]
 \end{center}
 
-\vspace{-3cm}
-\problem $\displaystyle \lim_{x\to 0}\frac{4^x-1}{8^x-1}$
-\choicesH{$\dfrac{2}{3}$}{$\dfrac{1}{2}$}{$1$}{$0$}{$2$}
 
-\problem A square with each side of length $1$ is inscribed in a circle. What is the length of a side of a square which is inscribed in one of the circular zones outside the given square? This square has two vertices on the side of the square with sides of length $1$ and the other two vertices on the circle.
-\begin{center}
-\begin{tikzpicture}[
-  x=2.1cm, y=2.1cm,
-  line cap=round, line join=round,
-  every node/.style={font=\small}
-]
-
-% Big square: side 1, centered at origin
-\pgfmathsetmacro{\a}{0.5}            % half side length
-\pgfmathsetmacro{\r}{sqrt(2)/2}      % circumradius of the big square
-
-% Small square side s determined by: (s/2)^2 + (a+s)^2 = r^2  -> 5s^2+4s-1=0 -> s=1/5
-\pgfmathsetmacro{\s}{(-4 + sqrt(36))/10} % = 0.2
-
-\coordinate (O) at (0,0);
-\coordinate (A) at (-\a,-\a);
-\coordinate (B) at ( \a,-\a);
-\coordinate (C) at ( \a, \a);
-\coordinate (D) at (-\a, \a);
-
-% Small square sits on top side CD, centered horizontally
-\coordinate (E) at (-\s/2,\a);
-\coordinate (F) at ( \s/2,\a);
-\coordinate (G) at ( \s/2,\a+\s);
-\coordinate (H) at (-\s/2,\a+\s);
-
-% Circle (slightly lighter so it doesn't visually "double up" with square edges)
-\draw[thick] (O) circle (\r);
-
-% Big square
-\draw[thick] (A)--(B)--(C)--(D)--cycle;
-
-% Small square
-\draw[thick] (E)--(F)--(G)--(H)--cycle;
-
-% Mark the "on-circle" vertices (optional but nice)
-\fill (G) circle (0.45pt);
-\fill (H) circle (0.45pt);
-
-% Minimal label for side length 1 (no arrows)
-\node[below] at ($(A)!0.5!(B)$) {$1$};
-
-\end{tikzpicture}
-\end{center}
-\choicesH{$\dfrac{1}{5}$}{$\dfrac{\sqrt6}{10}$}{$\dfrac{1}{4}$}{$\dfrac{\sqrt2}{5}$}{$\dfrac{\sqrt2}{4}$}
-
-\problem How many real roots does the equation $\sin x=\log_{10}x$ have?
-\choicesH{$1$}{$2$}{$3$}{$4$}{more than $4$}
-
-\problem What is the minimum value of the function
-\[
-f(x)=\frac{5-4x+x^2}{2-x}
-\]
-on $(-\infty,2)$?
-\choicesH{$-1$}{$0$}{$1$}{$2$}{$3$}
-
-\vspace{-2cm}
-\problem Pat plays the following game: He picks an integer $n$, and then $10$ coins are flipped. He wins if there are $n$ heads or if there are $n$ tails. Which of the following choices for $n$ gives Bob the maximal chance of winning?
-\choicesH{$1$}{$2$}{$3$}{$4$}{$5$}
 
 \problem Determine the value of the following summation:
 \[
