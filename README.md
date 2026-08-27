@@ -1,3 +1,3 @@
-# IA Math Team Slides
+# IA Math Team Source
 
-Source code for all our slides.
+Source code for all our slides, worksheet, etc.
