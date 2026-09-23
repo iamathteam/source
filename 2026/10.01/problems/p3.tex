@@ -1,0 +1,49 @@
+Three of Varun's watchtowers occupy $A=(0,0)$, $B=(14,0)$, and $C=(5,12)$.
+Intelligence places Martin's prison at a point equally distant from all
+three towers. A secret tunnel entrance lies inside the triangle, equally
+distant from its three sides. Find both locations and their common
+distances from the towers and roads, respectively.
+
+\begin{center}
+\begin{asy}
+size(7cm);
+pair A=(0,0), B=(14,0), C=(5,12);
+draw(A--B--C--cycle,black+0.9bp);
+dot(A,black+4bp); dot(B,black+4bp); dot(C,black+4bp);
+label("$A=(0,0)$",A,SW,black);
+label("$B=(14,0)$",B,SE,black);
+label("$C=(5,12)$",C,N,black);
+\end{asy}
+\end{center}
+
+\begin{solution}
+The side lengths are $AB=14$, $BC=15$, $CA=13$; the semiperimeter is
+$21$ and Heron's formula gives area $84$.
+
+The tunnel is the incenter. Its distance from each road is
+$r=84/21=4$. Since $AB$ is $y=0$, the incenter has $y=4$.
+The line $AC$ is $12x-5y=0$, so its distance condition is
+$|12x-20|/13=4$. Taking the solution inside the triangle gives
+$\boxed{I=(6,4)}$, at distance $\boxed{4}$ from each road.
+
+The prison is the circumcenter. The perpendicular bisector of $AB$
+is $x=7$. Equating squared distances to $A$ and $C$ gives
+$10x+24y=169$, hence $\boxed{O=(7,33/8)}$.
+Its distance from every tower is
+$\sqrt{7^2+(33/8)^2}=\boxed{65/8}$.
+
+\begin{center}
+\begin{asy}
+size(6.5cm);
+pair A=(0,0), B=(14,0), C=(5,12);
+pair I=(6,4), O=(7,33/8);
+draw(A--B--C--cycle,black+0.8bp);
+dot(A,black+3bp); dot(B,black+3bp); dot(C,black+3bp);
+label("$A$",A,SW,black); label("$B$",B,SE,black);
+label("$C$",C,N,black);
+dot(I,blue+5bp); dot(O,blue+5bp);
+label("$I$",I,SW,blue);
+label("$O$",O,NE,blue);
+\end{asy}
+\end{center}
+\end{solution}

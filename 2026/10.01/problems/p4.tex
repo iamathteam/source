@@ -1,0 +1,35 @@
+Martin's rescue party must travel from $(0,0)$ to $(6,6)$ on the road
+network below. Every move is one unit north or one unit east. Enemy
+checkpoints at $(2,2)$ and $(4,4)$ cannot be visited.
+How many shortest routes remain?
+
+\begin{center}
+\begin{asy}
+unitsize(0.69cm);
+for (int i=0; i<=6; ++i) {
+  draw((i,0)--(i,6),black+0.55bp);
+  draw((0,i)--(6,i),black+0.55bp);
+}
+pair S=(0,0), T=(6,6), X=(2,2), Y=(4,4);
+dot(S,black+4bp); dot(T,black+4bp);
+label("$S=(0,0)$",S,SW,black); label("$T=(6,6)$",T,NE,black);
+for (pair P : new pair[]{X,Y}) {
+  draw(P+(-0.13,-0.13)--P+(0.13,0.13),black+1.5bp);
+  draw(P+(-0.13,0.13)--P+(0.13,-0.13),black+1.5bp);
+}
+label("$(2,2)$",X,SW,black);
+label("$(4,4)$",Y,NE,black);
+\end{asy}
+\end{center}
+
+\begin{solution}
+Every shortest route consists of six east and six north moves, so there
+are $\binom{12}{6}=924$ without restrictions.
+There are $\binom42\binom84=420$ routes through $(2,2)$ and,
+symmetrically, $420$ through $(4,4)$. Routes through both checkpoints
+were subtracted twice: their number is $\binom42^3=216$.
+By inclusion--exclusion, the answer is
+\[
+\boxed{924-420-420+216=300}.
+\]
+\end{solution}

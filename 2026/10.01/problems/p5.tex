@@ -1,0 +1,27 @@
+Eight distinct officers sit around a circular table. Officers $A$ and
+$B$ must not sit next to each other, nor may officers $C$ and $D$.
+How many arrangements are possible if rotations are considered identical,
+but reflections are considered different?
+
+\begin{center}
+\begin{asy}
+size(4.3cm);
+draw(circle((0,0),1.4),black+0.9bp);
+for (int i=0; i<8; ++i) {
+  real t=pi/2-i*pi/4;
+  pair P=2.05*(cos(t),sin(t));
+  draw(circle(P,0.24),black+0.9bp);
+}
+\end{asy}
+\end{center}
+
+\begin{solution}
+There are $(8-1)!=5040$ circular arrangements in total. Treating
+$A,B$ as one block, in either order, gives $2\cdot6!=1440$
+arrangements with that forbidden adjacency; the same holds for $C,D$.
+If both pairs are adjacent, there are $2^2\cdot5!=480$ arrangements.
+Inclusion--exclusion gives
+\[
+\boxed{5040-1440-1440+480=2640}.
+\]
+\end{solution}
