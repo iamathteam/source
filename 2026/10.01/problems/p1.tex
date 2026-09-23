@@ -1,0 +1,33 @@
+Supreme Commander Varun Gadi has concealed the size of the army guarding
+Prince Martin Qi Ho. His quartermaster offers a smaller example: a detachment
+of fewer than 50 soldiers leaves 2 soldiers over when arranged in rows of 3,
+3 over in rows of 5, and 2 over in rows of 7. How many soldiers are in the
+detachment?
+
+The real army is much larger. Its head count is between 60,000 and 70,000.
+Arranging the soldiers in rows of 7, 9, 11, and 13 leaves, respectively,
+3, 2, 1, and 3 soldiers over. Determine its exact size.
+
+\begin{solution}
+For the small detachment, the conditions are
+\[
+ n\equiv 2\pmod 3,\qquad n\equiv 3\pmod 5,\qquad
+ n\equiv 2\pmod 7.
+\]
+The first and third give $n\equiv 2\pmod{21}$. Of $2,23,44$,
+only $23$ leaves remainder $3$ modulo $5$. Thus $\boxed{n=23}$.
+
+For the army, the first and fourth reports give $N\equiv3\pmod{91}$,
+so write $N=3+91k$. The remaining reports imply
+\[
+ 3+k\equiv2\pmod9,\qquad 3+3k\equiv1\pmod{11},
+\]
+hence $k\equiv8\pmod9$ and $k\equiv3\pmod{11}$.
+Writing $k=8+9t$ gives $9t\equiv6\pmod{11}$, so
+$t\equiv8\pmod{11}$. Therefore
+\[
+ N=3+91\bigl(8+9(8+11u)\bigr)=7283+9009u.
+\]
+The only value between 60,000 and 70,000 occurs at $u=6$:
+$\boxed{N=61{,}337}$.
+\end{solution}
