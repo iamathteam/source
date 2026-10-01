@@ -1,16 +1,4 @@
-The final escape tunnel is a $2\times9$ grid of square rooms. Engineers
-can seal adjacent rooms with $1\times2$ rectangular barricades, placed
-either horizontally or vertically. Every room must be covered exactly
-once. How many different complete arrangements are possible?
-
-\begin{center}
-\begin{asy}
-unitsize(0.8cm);
-for (int i=0; i<=5; ++i) draw((i,0)--(i,2),black+0.75bp);
-for (int j=0; j<=2; ++j) draw((0,j)--(5,j),black+0.75bp);
-label("$\cdots$",(5.6,1),E,black);
-\end{asy}
-\end{center}
+The final escape tunnel is a 2 $\times$ 9 grid of square rooms. Engineers can seal adjacent rooms with 1 $\times$ 2 rectangular barricades, placed either horizontally or vertically. Every room must be covered exactly once. How many different complete arrangements are possible?
 
 \begin{solution}
 Let $a_n$ be the number of tilings of a $2\times n$ passage. The first

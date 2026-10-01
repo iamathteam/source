@@ -1,19 +1,4 @@
-Three of Varun's watchtowers occupy $A=(0,0)$, $B=(14,0)$, and $C=(5,12)$.
-Commander Varun wants to know how many non-overlapping tanks, each with
-area one square unit, will fit in the triangular region between the towers.
-What number does he obtain?
-
-\begin{center}
-\begin{asy}
-size(7cm);
-pair A=(0,0), B=(14,0), C=(5,12);
-draw(A--B--C--cycle,black+0.9bp);
-dot(A,black+4bp); dot(B,black+4bp); dot(C,black+4bp);
-label("$A=(0,0)$",A,SW,black);
-label("$B=(14,0)$",B,SE,black);
-label("$C=(5,12)$",C,N,black);
-\end{asy}
-\end{center}
+Commander Varun's three watchtowers occupy A = (0, 0), B = (14, 0), and C = (5, 12). Commander Varun very evilley devises to figure out how many non-overlapping tanks with area 1 square unit will fit between the towers. What is the number Varun came up with?
 
 \begin{solution}
 The base $AB$ has length $14$, and the altitude from $C$ to $AB$ is $12$.

@@ -1,19 +1,4 @@
-Eight distinct knights sit around a circular table. Battalion Commander
-Bangal and Sir Sabbani must not sit next to each other.
-How many arrangements are possible if rotations are considered identical,
-but reflections are considered different?
-
-\begin{center}
-\begin{asy}
-size(4.3cm);
-draw(circle((0,0),1.4),black+0.9bp);
-for (int i=0; i<8; ++i) {
-  real t=pi/2-i*pi/4;
-  pair P=2.05*(cos(t),sin(t));
-  draw(circle(P,0.24),black+0.9bp);
-}
-\end{asy}
-\end{center}
+The 8 knights of a round table sit in a circle. Battalion Commander Bangal and Sir Sabbani may not sit next to each other. How many arrangements are possible if rotations are considered identical, but reflections are considered different?
 
 \begin{solution}
 There are $(8-1)!=5040$ circular arrangements in total. Treating
