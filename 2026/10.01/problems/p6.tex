@@ -1,39 +1,22 @@
-Six frontier towns $A,B,C,D,E,F$ are each connected by one road to
-the central fort $O$; there are no other existing roads. The rescue party
-must start at $A$, finish at $B$, and traverse every road exactly once.
-Varun's retreat destroyed two bridges, but the engineers can build exactly
-two new roads between frontier towns $C,D,E,F$.
-Which two should they build to minimize cost?
+The final escape tunnel is a $2\times9$ grid of square rooms. Engineers
+can seal adjacent rooms with $1\times2$ rectangular barricades, placed
+either horizontally or vertically. Every room must be covered exactly
+once. How many different complete arrangements are possible?
 
 \begin{center}
 \begin{asy}
-size(5cm);
-pair O=(0,0), A=(0,2), B=(1.73,1), C=(1.73,-1);
-pair D=(0,-2), E=(-1.73,-1), F=(-1.73,1);
-for (pair P : new pair[]{A,B,C,D,E,F}) {
-  draw(O--P,black+0.85bp);
-  dot(P,black+4bp);
-}
-dot(O,black+4bp);
-label("$O$",O,W,black); label("$A$",A,N,black);
-label("$B$",B,NE,black); label("$C$",C,SE,black);
-label("$D$",D,S,black); label("$E$",E,SW,black);
-label("$F$",F,NW,black);
+unitsize(0.8cm);
+for (int i=0; i<=5; ++i) draw((i,0)--(i,2),black+0.75bp);
+for (int j=0; j<=2; ++j) draw((0,j)--(5,j),black+0.75bp);
+label("$\cdots$",(5.6,1),E,black);
 \end{asy}
 \end{center}
 
-\[
-\begin{array}{c|rrrrrr}
-\text{Proposed road}&CD&EF&CE&DF&CF&DE\\ \hline
-\text{Cost}&9&5&4&3&6&8
-\end{array}
-\]
-
 \begin{solution}
-An Euler trail from $A$ to $B$ exists precisely when those are the only
-two vertices of odd degree. Currently all six frontier towns have degree
-one, and the fort has degree six. The two new roads must therefore pair
-up $C,D,E,F$, raising each of their degrees to two.
-The three possible pairings cost $9+5=14$, $4+3=7$, and $6+8=14$.
-Build $\boxed{CE\text{ and }DF}$ at total cost $\boxed{7}$.
+Let $a_n$ be the number of tilings of a $2\times n$ passage. The first
+column is either covered by one vertical domino, leaving a $2\times(n-1)$
+passage, or by two horizontal dominoes, leaving a $2\times(n-2)$ passage.
+Thus $a_n=a_{n-1}+a_{n-2}$, with $a_0=a_1=1$.
+These are shifted Fibonacci numbers, so
+$\boxed{a_9=55}.$
 \end{solution}

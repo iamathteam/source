@@ -1,5 +1,5 @@
-Eight distinct officers sit around a circular table. Officers $A$ and
-$B$ must not sit next to each other, nor may officers $C$ and $D$.
+Eight distinct knights sit around a circular table. Battalion Commander
+Bangal and Sir Sabbani must not sit next to each other.
 How many arrangements are possible if rotations are considered identical,
 but reflections are considered different?
 
@@ -17,11 +17,9 @@ for (int i=0; i<8; ++i) {
 
 \begin{solution}
 There are $(8-1)!=5040$ circular arrangements in total. Treating
-$A,B$ as one block, in either order, gives $2\cdot6!=1440$
-arrangements with that forbidden adjacency; the same holds for $C,D$.
-If both pairs are adjacent, there are $2^2\cdot5!=480$ arrangements.
-Inclusion--exclusion gives
+Bangal and Sabbani as one block, in either order, gives $2\cdot6!=1440$
+arrangements with the forbidden adjacency. Therefore the answer is
 \[
-\boxed{5040-1440-1440+480=2640}.
+\boxed{5040-1440=3600}.
 \]
 \end{solution}
