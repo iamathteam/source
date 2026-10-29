@@ -1,0 +1,17 @@
+.direnv/
+.DS_Store
+
+# Generated LaTeX files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# Compiled documents
+*.pdf
