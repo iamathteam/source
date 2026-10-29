@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,geometry,tikz,lmodern}
+\geometry{letterpaper,landscape,margin=0.75in}
+\pagestyle{empty}
+
+\definecolor{deepsea}{HTML}{173F51}
+\definecolor{oceanblue}{HTML}{B9DCE7}
+\definecolor{seafoam}{HTML}{DCEFF2}
+\definecolor{waveblue}{HTML}{A8D0DD}
+\pagecolor{seafoam}
+
+\newcommand{\station}[2]{%
+  \clearpage
+  \begin{tikzpicture}[remember picture,overlay]
+    % Layered swells form a seascape across the bottom of each page.
+    \fill[oceanblue!75] (current page.south west)
+      -- ([yshift=0.95in]current page.south west)
+      .. controls +(3.0,0.55) and +(-3.0,-0.35) ..
+        ([yshift=1.0in]current page.south east)
+      -- (current page.south east) -- cycle;
+    \fill[waveblue!65] (current page.south west)
+      -- ([yshift=0.48in]current page.south west)
+      .. controls +(3.1,-0.2) and +(-3.1,0.55) ..
+        ([yshift=0.68in]current page.south east)
+      -- (current page.south east) -- cycle;
+    \fill[deepsea!18] (current page.south west)
+      -- ([yshift=0.17in]current page.south west)
+      .. controls +(3.5,0.35) and +(-3.0,-0.2) ..
+        ([yshift=0.28in]current page.south east)
+      -- (current page.south east) -- cycle;
+
+    % A sailboat and its wake sit above the problem, opposite the heading.
+    \begin{scope}[shift={([xshift=-1.5in,yshift=-1.0in]current page.north east)},scale=2.25]
+      \fill[deepsea!75] (-0.50,-0.23) -- (0.50,-0.23) -- (0.30,-0.40) -- (-0.30,-0.40) -- cycle;
+      \draw[deepsea!75,line width=1pt] (0,-0.23) -- (0,0.58);
+      \fill[deepsea!35] (-0.05,0.50) -- (-0.05,-0.16) -- (-0.43,-0.16) -- cycle;
+      \fill[waveblue] (0.06,0.39) -- (0.06,-0.16) -- (0.40,-0.16) -- cycle;
+      \draw[deepsea!35,line width=0.7pt] (-0.62,-0.48) .. controls (-0.3,-0.55) and (0.25,-0.55) .. (0.62,-0.48);
+    \end{scope}
+
+    % Fish and sea plants live in the lower margin, clear of the words.
+    \begin{scope}[shift={([xshift=-1.55in,yshift=0.72in]current page.south east)},scale=1.8]
+      \foreach \x/\y/\size in {0/0/1,0.65/0.28/0.7,-0.58/0.28/0.62} {
+        \begin{scope}[shift={(\x,\y)},scale=\size]
+          \fill[deepsea!48] (0,0) ellipse (0.24 and 0.10);
+          \fill[deepsea!48] (-0.18,0) -- (-0.35,0.12) -- (-0.35,-0.12) -- cycle;
+          \fill[seafoam] (0.12,0.025) circle (0.018);
+        \end{scope}
+      }
+    \end{scope}
+    \begin{scope}[shift={([xshift=0.52in,yshift=0.12in]current page.south west)}]
+      \draw[deepsea!38,line width=2pt,line cap=round] (0,0) .. controls (0.25,0.45) and (-0.1,0.75) .. (0.12,1.16);
+      \draw[deepsea!38,line width=2pt,line cap=round] (0.2,0) .. controls (0.48,0.30) and (0.18,0.64) .. (0.40,0.86);
+      \draw[deepsea!38,line width=2pt,line cap=round] (-0.12,0) .. controls (-0.34,0.35) and (-0.15,0.52) .. (-0.34,0.75);
+    \end{scope}
+    \foreach \x/\y/\r in {0.95/0.55/0.045,1.15/0.75/0.075,0.97/1.02/0.04,1.38/1.15/0.06}
+      \draw[deepsea!30,line width=0.8pt] ([xshift=\x in,yshift=\y in]current page.south west) circle (\r in);
+  \end{tikzpicture}%
+  \noindent\begin{minipage}[t]{0.82\textwidth}
+    \sffamily\color{deepsea}
+    {\large\bfseries THE SINKING SHIP}\par\vspace{0.12in}
+    {\fontsize{30}{35}\selectfont\bfseries Station #1}
+  \end{minipage}\par
+  \vfill
+  \noindent\begin{minipage}{\textwidth}
+    \color{deepsea}\sffamily\raggedright
+    \ifnum#1=5 \fontsize{21}{28}\selectfont\else \fontsize{27}{36}\selectfont\fi
+    \setlength{\parskip}{0.55em}
+    #2
+  \end{minipage}
+  \vfill\vspace{0.42in}
+}
+
+\begin{document}
+\station{1}{The R.M.S SEAcant was slowly drifting through the seas. It started at the coordinate 0,0 and traveled 2 miles east. Then, the ship drifted in a circle around the point, (6,7). After completing exactly one rotation, it then traveled to the center of the circle. Find the total distance traveled by the SEAcant.}
+
+\station{2}{At night in dark waters off the shore of Bermuda, the SEAcant encountered the Black Pearl (A ship). The SEAcant was travelling 60 degrees north of west at 10 miles per hour while the Pearl was travelling 45 degrees east of north at 5 miles per hour. Find the rate that the distance between the ships is changing.}
+
+\station{3}{Captain Jack Sparrow discovered 4167 coins of gold while raiding the SEAcant. He wanted to divide them into as many piles as he could with no two piles having the same amount of coins. How many piles can he make?}
+
+\station{4}{When docking, the captain of the SEAcant Deraj Ffog realized he needed to spend all his 1003 piece coins and 1005 piece coins on a parrot. If he spent a total of 503,509 pieces, how many of each coin did Deraj have to start?}
+
+\station{5}{One of the four pirates possesses the key to Davy Jones' Locker. When questioned by the crew of the RMS SEAcant, each pirate makes a statement. However, only one of them is telling the truth (the other three are lying).
+
+\textbf{Captain Jack Sparrow:} ``Elizabeth has the key.''\\
+\textbf{Elizabeth Swann:} ``I do not have the key.''\\
+\textbf{William Turner:} ``Barbossa has the key.''\\
+\textbf{Barbossa:} ``Jack is lying.''
+
+Who has the key to Davy Jones' Locker, and who is the only person telling the truth?}
+
+\station{6}{Edward Teach found a square bar of gold which was divided equally into 25 little squares. If Jack the monkey stole one of the corner squares, how many different squares could Edward Teach create using the 24 connected remaining pieces?}
+
+\station{7}{In the wee hours of the night the SEAcant hit the Panama Canal Locks on the bottom of the boat. There were a total of 60 lifejackets and 5 helicopter seats to evacuate the boat. If there were 66 people on the boat, how many ways can we fill the evacuations?}
+\end{document}
