@@ -1,0 +1,65 @@
+\documentclass[inline]{article}
+\usepackage{amsmath, enumitem, graphicx, geometry}
+\usepackage[inline]{asymptote}
+\geometry{margin=.9in}
+
+\begin{asydef}
+usepackage("bm");
+texpreamble("\def\V#1{\bm{#1}}");
+import geometry;
+\end{asydef}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Intermediate Combinatorics I}\\[0.25cm]
+{\large 8 October, 2026}\\[1cm]
+\end{center}
+
+\begin{enumerate}[itemsep=2.85cm]
+    \section{Problems}
+    \item Jared the real rock roller has 10 identical real round rocks. He has 5 really roaring rooters that he wants to give the rocks to. How many ways can Rockin' Jared give out the rocks?
+    \item The Michigan Wolverines play osu. If sum of the team's scores was 79, how many different scores are there for osu to lose the game? Please please please use stars and bars to solve this question.
+    \item Stars and bars (balls and urns/boxes, etc) are used in relevant fields. Take the following example, an exercise in statistical mechanics. 
+    \begin{itemize}
+        \item Think of bosons as particles of interest, and they are all identical (if you're a physics nerd, this is Pauli exclusion principle).
+        \item Each boson can have different discrete (``quantized'') energies $\varepsilon_1, \varepsilon_1, \varepsilon_2,\varepsilon_4$.
+        \item Think of the total number of microstates, $\Omega$, as how many distributions of bosons exist.
+    \end{itemize}
+    How many microstates can a system of 3 bosons have if there are only 4 energy levels?
+    \item Goff the serious shark stored seven small identical schools of seafish. Goff sadly has only two friends. How many ways can Goff and his 2 friends eat the seven identical schools if each of them must receive at least one school of seafish
+    \item Maintenance man Marty maintains 10 different mansions. Marty also mentors 3 minions. How many ways are there for Marty to give out the mansions to his minions.
+    % \item If each of $a, b, c, d$ are non-negative integers, how many different quadruplets of $(a,b,c,d)$ are there?
+    % \[
+    %     a+b+c+d=10
+    % \]
+    % \item What if the integers in question 5 must be positive?
+    % \begin{asy}
+    %     size(5cm);
+    %     dot((0, 0));
+    % \end{asy}
+    \item Carlos Alcaraz and Alexander Zverev are facing off in a tennis match. During a break in the match, they have played a total of 21 points. If Zverev has won 12 points, how many ways could he have won those 12 points.
+    \item If there are 6 tennis players, 7 football players, 4 soccer players, and 1 basketball player, and you have 5 medicine balls, how many ways can you distribute these balls to the players? Note that the balls are considered identical.
+    
+    \section{Challenge Problems}
+    \item Find the number of nonnegative integer solutions to
+    \[
+    105a+70b+42c+30d=2022.
+    \]
+    \item Find the number of ordered quadruples of positive integers \((a,b,c,d)\) satisfying
+\[
+a+b+c+d=32
+\]
+
+and
+\[
+a,b,c,d\le15.
+\]
+    \item How many 6-element subsets \(S\) of \(\{1,2,\ldots,24\}\) have the property that no two elements of \(S\) differ by 1 or 2 modulo 24?
+    
+    
+
+    
+    % \item How many numbers less than 1000 are not divisible to all one-digit prime?
+\end{enumerate}
+\end{document}

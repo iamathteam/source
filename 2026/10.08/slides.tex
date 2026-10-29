@@ -1,0 +1,214 @@
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\makeatletter
+\def\input@path{{../../common/slides/theme/}{common/slides/theme/}{theme/}}
+\makeatother
+\usetheme{CleanEasy}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{emoji}
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../../common/slides/assets/}{common/slides/assets/}{./}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows, calc, decorations.pathreplacing, arrows.meta, backgrounds, patterns, overlay-beamer-styles, angles, quotes, intersections}
+\usepackage{etoolbox}
+\usepackage{animate}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!5},
+  numbers=left,
+  numberstyle=\tiny\color{black!70},
+  numbersep=5pt
+}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Jared Math Team Goff]{Math Team}
+\vspace{-2cm}\date{Oct. 8, 2026}
+\subtitle{2026--2027 IA Math Team\\[0.8em]\textit{Wayyy too busy ... cuz of six flags}\\[-0.2em]{\scriptsize - Sreyas Sabbani}}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}[t]{Today}
+\vspace{0.35cm}
+\begin{enumerate}
+    \item Introduction
+    \item Competitions Reminder
+    \item Future Morning Practices
+    \item Themed Practice
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Competitions - Reminder}
+\vspace{0.35cm}
+\textbf{AMC 10 / 12}: November 5 and 13, 2026. \textbf{\textit{Questions?}} \\
+\textbf{KSU}: October 28, 2026. \\
+\textbf{UGA}: October 24, 2026. \\
+\textbf{Rockdale} - November 7th \\
+\textbf{GML}: Oct 20!, Nov 17!, Dec 15!\\
+\begin{itemize}
+    \small \item Hosted @ IA
+    \item Either block meetings or morning (more info soon)
+    \item \textbf{THESE ARE MANDATORY}
+\end{itemize}
+\end{frame}
+
+\section{Intro to Combinatorics}
+
+\begin{frame}[t]{A classic problem}
+    How many ways are there to arrange $n$ people in a row?
+    DONT SPOIL ANSWER\textbf{!}
+\end{frame}
+
+\begin{frame}[t]{A classic problem}
+    How many ways are there to arrange $n$ people in a row?
+
+    \begin{itemize}
+        \item What counts as different arrangements? 
+        \item How do we count these?
+    \end{itemize}
+    
+    \vspace{4cm}
+    
+    This leads us to define the \textit{permutation}, one of the most fundamental operations in combinatorics.
+\end{frame}
+
+\begin{frame}[t]{Permutations}
+    \begin{definition}
+    We define a new quantity
+    \[
+        _nP_r=\frac{n!}{(n-r)!}=n\cdot(n-1)\cdots(n-r+2)\cdot(n-r+1)
+    \]
+    \end{definition}
+    
+    \vspace{1em}
+    
+    We will use this operation if we need to place $n$ distinct objects in $r$ spots and the order of the objects matters.
+\end{frame}
+
+\begin{frame}[t]{Permutations: An Example}
+    For example, how would we figure out how many ways there are to place 5 people on a podium?
+    
+\end{frame}
+
+\begin{frame}[t]{Permutations: An Example}
+        For example, how would we figure out how many ways there are to place 5 people on a podium?
+
+    \vspace{1cm}
+    \begin{align*}
+        _5P_3
+        &=\frac{5!}{(5-3)!}\\
+        &=5\cdot4\cdot3
+    \end{align*}
+\end{frame}
+\begin{frame}[t]{Quiz}
+    How many ways are there to arrange the letters of the following word?
+
+    \vspace{0.5cm}
+    \begin{center}
+        \textit{DONKEY}
+    \end{center}
+    
+    \vspace{1cm}
+    How about arranging just 4 letters of this word?
+    
+    \vspace{0.5cm}
+    \begin{center}
+        \textit{JAREDGOF}
+    \end{center}
+\end{frame}
+\begin{frame}[t]{What if...?}
+    ... if the order didn't matter?
+    
+    \vspace{.5em}
+    
+    How many ways can we \textit{\textbf{pick}} 3 people out of 15 to form the presidential cabinet?
+\end{frame}
+
+\begin{frame}[t]{What if...?}
+    ... if the order didn't matter?
+    
+    \vspace{.5em}
+    
+    How many ways can we \textit{\textbf{pick}} 3 people out of 15 to form the presidential cabinet?
+
+    \vspace{1.5cm}
+
+    The distinction is very important to know: it will aid in determining what type of problem you are trying to solve, which is then useful once you are familiar with different types of problems (which there aren't really that many of when you begin).
+\end{frame}
+
+\begin{frame}[t]{Another important function: Combination}
+    \begin{definition}
+        We define a choose function that takes in two inputs $n$ and $k$ and outputs the number of ways to choose $k$ objects out of the $n$ total objects. This is the function
+        \[
+        _nC_k=\binom nk=\frac{n!}{(n-k)!\cdot k!}
+        \]
+    \end{definition}
+    
+    \vspace{2cm}
+    
+    For example, if we want to choose $6$ slices out of the total $7$ of spaghetti that Goff Sabbani sliced, we employ the combination $\binom 76=\frac{7!}{6!1!}=7$ ways.
+\end{frame}
+
+\begin{frame}[t]{Quick Quiz}
+    How many ways are there to arrange the letters of the word?
+    \[ABAAB?\]\\
+    \vspace{1.5cm}
+    How about:
+    \[1211212\]
+\end{frame}
+
+
+
+
+\begin{frame}[t]{Stars and Bars I}
+    \begin{definition}
+    The number of ways to distribute $m$ things to $n$ people can be represented rearranging $m$ stars and $n-1$ bars. The number of ways to do this is
+    \[
+    \binom{m+n-1}{n-1}
+    \]
+    \end{definition}
+\end{frame}
+
+\begin{frame}[t]{Quicker Quiz}
+    How many ways are there for nonnegative integers $a,b,c,d$ to satisfy \[a+b+c+d=18\]  
+    
+    \vspace{2cm}
+    
+    For example, the quadruplet $(a,b,c,d)=(6,7,4,1)$ works.
+\end{frame}
+
+
+\begin{frame}[t]{Quickest Quiz}
+    Marty, a mysterious magician has 67 Twix up his sleeve for 10 kids. If each kid shall receive at least 5 Twix, how many ways are Marty to give the kids the Twix?
+    \vspace{2cm}
+    
+    Varun lost his interest in chess and is now a full time mathematician. He had a total of 30 indistinguishable boards and would like to donate them to 5 organizations named Archimedes, Bernoulli, Cayley, Dirac, and Euler. If Varun would like to give Archimedes 1 board, Bernoulli 2 boards... , how many ways can he distribute them?
+\end{frame}
+
+
+
+\end{document}
